@@ -1,0 +1,835 @@
+:root
+{
+    --main-color:#e5f4fb;
+    --main-color-alt:#1787e0;
+    --main-transition:0.5s ; 
+    --main-padding-top:100px;
+    --main-padding-bottom:100px; 
+    --section-background:#ececec;
+    --main-transition:0.5s ; 
+    
+} 
+html
+{
+    scroll-behavior: smooth;
+}
+ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.container
+{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 3px solid var(--main-color);
+    border-right: 3px solid var(--main-color);
+}
+a
+{
+    text-decoration: none;
+}
+.spikes
+{
+position: relative;
+}
+.spikes::after
+{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    /* background-color: red; */
+    z-index: 1;
+    background-image: linear-gradient(135deg, #b015c3 25%, transparent 25%),linear-gradient(225deg, #58d0eb 25%, transparent 25%);
+    background-size: 30px 30px;
+}
+
+/* small Media */
+@media (min-width:768px)
+{
+    .container
+    {
+        width: 750px;
+    }
+}
+/* Mediam Media */
+@media (min-width:992px)
+{
+    .container
+    {
+        width: 970px;
+    }
+}
+
+/* large Media */
+@media (min-width:1200px)
+{
+    .container
+    {
+        width: 1170px;
+    }
+}
+/* ********************************************************************************************* */
+/* Start Header */
+.header .container
+{
+    height: 700px;
+    background-image: url(../img/blue_bg.png);
+    background-size: 100% 100%;
+    max-height: 900px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between ;
+    position: relative;
+}
+.header .box-nav
+{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    /* position: absolute;
+    top: 0; */
+}
+.header .box-nav img:hover
+{
+    animation: heartBeat 1s infinite;
+}
+.header .box-nav img
+{
+    width: 100px;
+    height: 100%;
+    margin-left: 30px;
+}
+.header .box-nav .main-nav
+{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* height: 72px; */
+    /* position: relative; */
+}
+.header .box-nav .main-nav > li > a
+{
+    position: relative;
+    height: 72px;
+    transition: var(--main-transition);
+    overflow: hidden;
+} 
+
+.header .main-nav > li> a::before{
+    content:"" ;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    /* background-color:red; */
+    bottom: 0;
+    /* top: 100%; */
+    left:-100%;
+    transition: var(--main-transition);
+}
+.header .main-nav > li > a:hover{
+    color: var(--main-color-alt);
+    background-color: var(--main-color);
+}
+
+.header .main-nav > li > a:hover::before{
+    /* left -100 into 0 move */
+    background-color:rgb(98, 14, 233);
+    left: 0;
+}
+.header .main-nav > li > a:hover
+{
+    animation: flipInX 0.40s infinite;
+    
+     
+}
+@keyframes flipInX {
+    from {
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+  
+    40% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+      animation-timing-function: ease-in;
+    }
+  
+    60% {
+      transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+      opacity: 1;
+    }
+  
+    80% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+  
+    to {
+      transform: perspective(400px);
+    }
+  }
+
+.header .box-nav .btn-login
+{
+    background-image: url(../img/login_button_bg.png);
+    background-size: 100% 100%;
+    height: 43px;
+    width: 14%;
+    text-align: center;
+    padding: -4px;
+    margin: 26px 153px;
+}
+.header .box-nav .btn-login:hover
+{
+    background-color: var(--main-color-alt);
+}
+.header .box-nav .btn-login p:hover
+{
+    color: var(--main-color-alt);
+}
+
+.header .home-section
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+.header .home-section .text
+{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    top: 7%;
+    margin-left: 30px;
+    overflow: hidden;
+}
+.header .home-section .text .delivery
+{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgba(233, 8, 147, 0.836);
+}
+.header .home-section .text span
+{
+    font-size: 30px;
+    font-weight: bold;
+    
+}
+.header .home-section .text p
+{
+    font-size: 20px;
+    line-height: 1.6;
+    
+}
+.header .home-section .image-home
+{
+    width: 54%;
+    height: 608px;
+    background-image: url(../img/landing_bg.png);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .home-section .image-home .person
+{
+    position: absolute;
+    top: 20%;
+    right: 19%;
+    width: 22%;
+}
+.header .home-section .image-home .person:hover
+{
+    animation: heartBeat 1s infinite;
+
+}
+
+  
+@keyframes heartBeat {
+    0% {
+      transform: scale(1);
+    }
+  
+    14% {
+      transform: scale(1.3);
+    }
+  
+    28% {
+      transform: scale(1);
+    }
+  
+    42% {
+      transform: scale(1.3);
+    }
+  
+    70% {
+      transform: scale(1);
+    }
+  }
+.header .home-section .image-home .cloud
+{
+    position: absolute;
+    top: 61%;
+    right: 2%;
+}
+.header .home-section .image-home .waves
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    top: 65%;
+    transform: skewX(68deg)
+}
+@media (max-width:767px) 
+{
+    .header .container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .header .box-nav
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .header .box-nav img
+    {
+        width: 182px;
+        display: flex;
+        position: relative;
+        left: -6%;
+    }
+    .header .box-nav .main-nav
+    {
+        position: absolute;
+        left: 14px;
+        width: 88%;
+        height: 211px;
+    }
+    .header .box-nav .btn-login
+    {
+        position: absolute;
+        top: 15%;
+        left: auto;
+        width: 100px;
+    }
+   
+    .header  .home-section
+    {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+    .header  .home-section .text
+    {
+        position: relative;
+    width: 120%;
+    height: 178px;
+    top: 80px;
+    left: 0;
+    margin-left: 30px;
+    overflow: hidden;
+    }
+    .header  .home-section .text span,.header  .home-section .text .delivery
+    {
+       font-size: 20px;
+       font-weight: bold;
+    }
+    .header  .home-section .text p
+    {
+       font-size: 18px;
+    }
+    .header  .home-section .image-home
+    {
+        position: absolute;
+        top: 250px;
+        width: 450px;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .header  .home-section .image-home .person
+    {
+        position: absolute;
+        top: 45px;
+        width: 48%;
+        right: auto;
+        margin-right: 71px;
+       
+
+    }
+
+    .header  .home-section .image-home .cloud
+    {
+        position: absolute;
+        width: 344px;
+        top: 56%;
+        left: 6%;
+    }
+    .header  .home-section .image-home .waves
+    {
+        position: absolute;
+        width: 569px;
+        height: 204px;
+        top: 54%;
+    }
+   
+        
+    }
+    @media (min-width:769px) and (max-width:991px) {
+        .header .main-nav li
+        {
+            width: 100%;
+            margin: 0 6%;
+            }
+        .header .home-section .image-home
+        {
+            width: 67%;
+            height: 89%;
+        }
+        .header .home-section .image-home .cloud
+        {
+            position: absolute;
+            top: 45%;
+            right: -13%;
+        }
+    }
+/* End Header */
+/* ********************************************************************************************* */
+
+/* Start Landing */
+.landing .container
+{
+   height: 1000px;
+  background-image: url("../img/second_section_.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 61% 54%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing  .land-img1
+{
+    position: absolute;
+    top: 30%;
+    left: 14%;
+}
+.landing  .land-img2
+{
+    position: absolute;
+    left: 43%;
+    top: 48%;
+}
+.landing  .land-img3
+{
+    position: absolute;
+    right: 13%;
+    top: 73%;;
+}
+.landing  .land-img4
+{
+    width: 200px;
+    height: 150px;
+    background-image: url(../img/why_kudzoka_bg.png);
+    background-size: 100% 100%;
+    position: absolute;
+    left: 6%;
+    top: 79%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInDownBig 8s infinite;
+} 
+@keyframes fadeInDownBig {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -2000px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+.landing  .land-img4 span
+{
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+} 
+.landing  .land-img4 p
+{
+    font-size: 14px;
+    color: #fff;
+    animation:flash 1s infinite;
+    
+} 
+
+@keyframes flash {
+    from,
+    50%,
+    to {
+      opacity: 1;
+    }
+  
+    25%,
+    75% {
+      opacity: 0;
+    }
+  }
+
+
+
+.landing .land-img1 img,.landing .land-img2 img,.landing .land-img3 img
+{
+    width: 150px;
+    height: 100px;
+}
+.landing  .land-img1 span,.landing .land-img2 span,.landing .land-img3 span
+{
+    font-size: 22px;
+    font-weight: bold;
+} 
+
+@media (max-width:767px) {
+    .landing .container
+    {
+        height: 1200px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        top: 5%;
+        
+    }
+    .landing .land-img4
+    {
+        position: absolute;
+        top: 37px;
+        left: 17%;
+    }
+    .landing .land-img1
+    {
+        position: absolute;
+        top: 29%;
+        left: 13%;
+    }
+    .landing .land-img2
+    {
+        position: absolute;
+        left: 21%;
+         top: 51%;
+    }
+    .landing .land-img2 img
+    {
+        transform: rotateY(180deg);
+     }
+     .landing .land-img3
+    {
+        position: absolute;
+        left: 35%;
+        top: 74%;
+    }
+}
+
+@media (min-width:769px) and (max-width:991px) 
+{
+    .landing .land-img3
+    {
+        position: absolute;
+        right: 2%;
+    }
+}
+
+
+
+/* End Landing */
+/* Start Swiper */
+.swip .container{
+    background:var(--main-color);
+   color: #000;
+   max-height: 600px;
+   overflow: hidden;
+   
+
+}
+.swiper {
+ width: 100%;
+ padding-top: 50px;
+ padding-bottom: 50px;
+}
+
+.swiper-slide {
+ background-position: center;
+ background-size: cover;
+ width: 300px;
+ height: 300px;
+ background-color:var(--main-color);
+}
+.swip .text{
+ display: flex;
+ justify-content: center;
+}
+.swip .text .super{
+ font-size: 20px;
+ font-weight: bold;
+}
+
+ /* End Swiper */
+/* ******************************************************************** */
+ /* Start footer */
+
+.footer .container{
+    display: flex;
+    height: 526px;
+    position: relative;
+    background-image: url(../img/Group\ 1131.png);
+    background-size: 114% 148%;
+    background-repeat: no-repeat;
+    /* transform: scaleX(1.1); */
+    background-position-x: center;
+    overflow: hidden;
+}
+.footer .btn
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 343px;
+    left: 77px;
+
+}
+
+.footer .btn .appstore
+{
+    width: 127px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    padding: 0px 5px;
+    border-radius: 6px;
+    margin: auto 20px;
+
+} 
+
+.footer .btn .appstore h4
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .btn .playstore
+{
+    width: 127px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    padding: 0px 5px;
+    border-radius: 6px;
+
+} 
+.footer .btn .playstore h4
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.footer .btn .playstore:hover,.footer .btn .appstore:hover
+{
+    animation: heartBeat 1s infinite;
+}
+.footer .icons
+{
+    position: absolute;
+    top: 400px;
+    left: 96px;
+}
+.footer .icons .instegram:hover{
+    background-color: #5851db;
+    animation: heartBeat 1s infinite;
+    }
+    .footer .icons .whatsapp:hover
+    {
+    background-color: #25d366;
+    animation: heartBeat 1s infinite;
+    }
+    .footer .icons .facebook:hover
+    {
+    background-color: #1877f2;
+    animation: heartBeat 1s infinite;
+    }
+.footer .footer-nav
+{
+    display: flex;
+    flex-direction: row;
+}
+.footer .footer-nav .footer-link
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: self-end;
+    margin-bottom: 10px;
+    margin-left: 67px;
+
+}
+.footer .footer-nav .footer-link li{
+    margin: 0px 16px;
+    z-index: 2;
+}
+.footer .footer-nav .footer-link li > a
+{
+    color: #fff;
+    font-weight: 100;
+}
+.footer-link .link:hover 
+    {
+       background-color: rgb(225, 35, 231);
+    } 
+.footer .img-foot img
+{
+    width: 600px;
+    position: absolute;
+    top: 24%;
+    right: 0%;
+}
+
+
+@media (max-width:767px) {
+
+    .footer  .container
+    {
+        height: 600px;
+    }
+    .footer .btn
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: absolute;
+        left: 14px;
+    }
+    .footer .btn .appstore,.footer .btn .playstore
+    {
+        padding: 0;
+        width: fit-content;
+    }
+    .footer .btn .appstore
+    {
+       margin-left: 0;
+       margin-bottom: 10px;
+       
+    }
+    .footer .icons
+    {
+    position: absolute;
+    top: 440px;
+    left: 12px;
+    }
+    .footer .icons .instegram :hover{
+    background-color: #5851db;
+    }
+    .footer .icons .whatsapp:hover
+    {
+    background-color: #25d366;
+    }
+    .footer .icons .facebook:hover
+    {
+    background-color: #1877f2;
+    }
+
+
+    .footer .footer-nav
+    {
+        position: relative;
+        top: 486px;
+        left: 0;
+        font-size: 18px;
+    }
+    .footer .footer-nav .footer-link
+    {
+    display: block;
+    position: absolute;
+    margin-left: -19px;
+    }
+    
+  .footer .footer-nav .footer-link li
+    {
+        margin-bottom: 8px;
+    } 
+  
+    .footer .img-foot
+    {
+    width: 344px;
+    height: 306px;
+    position: absolute;
+    right: -6%;
+    top: 201px;
+    }
+    .footer .img-foot img
+    {
+        position: absolute;
+    width: 100%;
+    height: 100%;
+    right: -40px;
+    top: 34%;
+    }
+}
+
+@media (min-width:769px) and (max-width:990px) {
+    .footer .img-foot img
+    {
+        width: 371px;
+        height: 385px;
+        position: absolute;
+        right: 5%;
+        top: 27%;
+    }
+    .footer .btn
+    {
+        position: absolute;
+        left: 0;
+    }
+    .footer .icons
+    {
+        position: absolute;
+        left: 19px;
+    }
+    .footer .footer-nav .footer-link
+    {
+        position: absolute;
+        top: 93%;
+        left: -8%;
+    }
+
+}
+
+
+
+/* End footer */
+
+
+
+
